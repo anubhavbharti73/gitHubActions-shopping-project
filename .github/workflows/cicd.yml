@@ -14,8 +14,17 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build with Maven
-      run: mvn compile
+    - name: Build User
+      working-directory: Users
+      run: mvn clean install -DskipTests
+      
+    - name: Build Cart
+      working-directory: ShopCartH2
+      run: mvn clean install -DskipTests
+      
+    - name: Build Items
+      working-directory: ShopItemH2
+      run: mvn clean install -DskipTests
       
   security-check:
     runs-on: self-hosted
