@@ -49,8 +49,8 @@ jobs:
 
     - name: Gitleaks Installation
       run: |
-        curl -sSL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64 -o gitleaks
-        chmod +x gitleaks
+        curl -sSL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64 -o ~/bin/gitleaks
+        chmod +x ~/bin/gitleaks
         mkdir -p ~/bin
         mv gitleaks ~/bin/
         echo 'export PATH=$PATH:~/bin' >> ~/.bashrc
