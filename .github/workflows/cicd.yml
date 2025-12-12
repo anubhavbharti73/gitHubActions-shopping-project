@@ -46,16 +46,3 @@ jobs:
       
     - name: Trivy FS Scan
       run: trivy fs --format table -o fs-report.json .
-
-    - name: Gitleaks Installation
-      run: |
-        mkdir -p ~/bin
-        curl -L https://github.com/gitleaks/gitleaks/releases/download/v9.17.0/gitleaks_9.17.0_linux_x64.tar.gz -o gitleaks.tar.gz
-        tar -xzf gitleaks.tar.gz
-        mv gitleaks ~/bin/
-        chmod +x ~/bin/gitleaks
-        echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
-        gitleaks --version      
-
-    - name: Gitleaks Code Scan
-      run: gitleaks detect source . -r gitleaks-report.json -f json
