@@ -5,6 +5,20 @@ on:
     branches: [ "master" ]
 
 jobs:
+  integrating-prisma:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Run Prisma Cloud 
+        id: prisma-cloud
+        uses: bridgecrewio/checkov-action@master
+        env:
+          PRISMA_API_URL: https://api.ind.prismacloud.io
+        with:
+          api-key: ${{ secrets.BC_API_KEY }}
+          
   compile:
     runs-on: self-hosted
     steps:
@@ -87,4 +101,5 @@ jobs:
       env: 
         SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
         SONAR_HOST_URL: ${{vars.SONAR_HOST_URL}}
-        
+    
+  
