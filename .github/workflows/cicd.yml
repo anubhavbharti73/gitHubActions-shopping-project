@@ -21,6 +21,7 @@ jobs:
           
   compile:
     runs-on: self-hosted
+    needs: integrating-prisma
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 11
