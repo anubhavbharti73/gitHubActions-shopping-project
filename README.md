@@ -1,75 +1,135 @@
-Online Shopping Application
+🛒 GitHub Actions Shopping Project
 
-This is a full-stack web application for managing an online shopping platform focused on fitness products. This repository contains the source code for both the frontend and backend components of the application.
+A full-stack Shopping / E-Commerce web application designed to demonstrate CI/CD automation using GitHub Actions, along with modern frontend and backend development practices.
 
-## Technologies Used
+This repository showcases how application code, pipelines, and automation come together in a real-world DevOps workflow.
 
-- **Backend**: Spring Boot
-- **Frontend**: Angular
-- **Database**: SQL (MySQL, PostgreSQL, etc.)
+📌 Project Overview
 
-## Prerequisites
+This project consists of:
 
-Before running this application, ensure you have installed the following:
+Frontend: Angular-based shopping UI
 
-- Java Development Kit (JDK) 8 or higher
-- Node.js and npm (Node Package Manager)
-- Angular CLI
-- Your preferred SQL database server (MySQL, PostgreSQL, etc.)
+Backend: Spring Boot REST APIs
 
-## Setting Up the Backend (Spring Boot)
+Database: Embedded H2 (for simplicity)
 
-1. Clone this repository.
-   ```bash
-   git clone https://github.com/your/repository.git
-   cd backend
-   ```
+CI/CD: GitHub Actions pipelines for build & automation
 
-2. Configure the database:
-   - Open `application.properties` in `src/main/resources` and update the database URL, username, and password.
+The main goal of this project is to demonstrate GitHub Actions in action while working with a real application, not just sample pipelines.
 
-3. Build and run the backend server:
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-   The backend server will start running on `http://localhost:8080`.
+Key Features
 
-## Setting Up the Frontend (Angular)
+Shopping cart functionality
 
-1. Navigate to the frontend directory:
-   ```bash
-   cd ../frontend
-   ```
+Product listing and management
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+RESTful backend APIs
 
-3. Run the Angular application:
-   ```bash
-   ng serve
-   ```
-   The Angular development server will start running on `http://localhost:4200`.
+GitHub Actions CI pipelines
 
-## Accessing the Application
+Docker-ready structure
 
-Once both the backend and frontend servers are running, you can access the FitHub application by navigating to `http://localhost:4200` in your web browser.
+Automated build and test execution
 
-## Additional Notes
+Tech Stack
+Category	Technology
+Frontend	Angular
+Backend	Spring Boot (Java)
+Database	H2
+Build Tools	Maven, npm
+CI/CD	GitHub Actions
+Containerization	Docker (optional)
+📂 Repository Structure
+gitHubActions-shopping-project/
+│
+├── ShopCartH2/        # Spring Boot backend
+├── Shopping/          # Angular frontend
+├── .github/workflows/ # GitHub Actions pipelines
+└── README.md
 
-- **Database Schema**: The database schema and migration scripts are located in `backend/src/main/resources/db`.
-- **API Documentation**: API endpoints and usage are documented in `backend/README.md`.
-- **Deployment**: For deployment, configure appropriate profiles and settings in both backend and frontend configurations.
+Prerequisites
 
-## Contributing
+Make sure the following are installed on your system:
 
-If you would like to contribute to this project, please fork the repository and create a pull request with your changes. We welcome contributions to improve functionality, add features, or fix bugs.
+Java 8+
 
-## License
+Maven
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Node.js & npm
 
----
+Angular CLI
 
-Feel free to customize this README according to your specific project structure, additional setup steps, or any other relevant information.
+Git (Docker optional)
+
+Running the Application Locally
+Clone the Repository
+git clone https://github.com/anubhavbharti73/gitHubActions-shopping-project.git
+cd gitHubActions-shopping-project
+
+Start Backend (Spring Boot)
+cd ShopCartH2
+./mvnw spring-boot:run
+
+
+Backend will be available at:
+http://localhost:8080
+
+Start Frontend (Angular)
+
+Open a new terminal:
+
+cd Shopping
+npm install
+ng serve
+
+
+Frontend will be available at:
+http://localhost:4200
+
+GitHub Actions CI/CD
+
+This repository uses GitHub Actions to automate:
+
+Application build
+
+Dependency installation
+
+Unit test execution
+
+CI validation on pull requests
+
+All workflows are located in:
+
+.github/workflows/
+
+
+This setup demonstrates real CI/CD integration with application code, making it ideal for DevOps learning and interviews.
+
+Docker Support (Optional)
+
+You can containerize the application using Docker (if configured):
+
+docker compose up --build
+
+Contributing
+
+Contributions are welcome!
+
+Fork the repository
+
+Create a feature branch
+
+Commit your changes
+
+Open a Pull Request
+
+Please ensure code quality and pipeline stability before submitting.
+
+License
+
+This project is licensed under the MIT License.
+
+📬 Contact
+
+If you have questions, suggestions, or improvements, feel free to open an issue or contribute directly.
