@@ -97,7 +97,7 @@ jobs:
       working-directory: ShopItemH2
       run: mvn clean package
     - name: Upload Item jar atifacts
-      uses: action/upload-artifact@v4
+      uses: actions/upload-artifact@v4
       with:
         name: app3-jar
         path: /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/ShopItemH2/target/*.jar
@@ -125,9 +125,9 @@ jobs:
     runs-on: self-hosted
     needs: build_project_sonar_scan
     steps:
-    - uses: action/checkout@v4
+    - uses: actions/checkout@v4
     - name: Download JAR
-      uses: action/download-artifact@v4
+      uses: actions/download-artifact@v4
       with:
         name: app1-jar
         path: /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/Users/target/
