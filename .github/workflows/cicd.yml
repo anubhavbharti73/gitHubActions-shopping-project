@@ -78,12 +78,29 @@ jobs:
     - name: Build Project - User
       working-directory: Users
       run: mvn clean package
+    - name: Upload User jar artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: app1-jar
+        path: /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/Users/target/*.jar
+        
     - name: Build Project - Cart
       working-directory: ShopCartH2
       run: mvn clean package
+    - name: Upload Cart jar Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: app2-jar
+        path: /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/ShopCartH2/target/*.jar
+        
     - name: Build Project - Item
       working-directory: ShopItemH2
       run: mvn clean package
+    - name: Upload Item jar atifacts
+      uses: action/upload-artifact@v4
+      with:
+        name: app3-jar
+        path: /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/ShopItemH2/target/*.jar
 
     - uses: actions/checkout@v4
       with:
@@ -103,5 +120,19 @@ jobs:
       env: 
         SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
         SONAR_HOST_URL: ${{vars.SONAR_HOST_URL}}
+
+  build_docker-image-and-push:
+    runs-on: self-hosted
+    needs: build_project_sonar_scan
+    steps:
+    - uses: action/checkout@v4
+    - name: Download JAR
+      uses: action/download-artifact@v4
+      with:
+        name: app1-jar
+        path: /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/Users/target/
+        
+     
+      
     
   
