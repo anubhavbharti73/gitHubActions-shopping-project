@@ -126,11 +126,23 @@ jobs:
     needs: build_project_sonar_scan
     steps:
     - uses: actions/checkout@v4
-    - name: Download JAR
+    - name: Download Item JAR
       uses: actions/download-artifact@v4
       with:
         name: app1-jar
         path: /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/Users/target/
+
+    - name: Download Cart Jar
+      uses: actions/download-artifact@v4
+      with:
+        name: app2-jar
+        path:  /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/ShopCartH2/target/
+
+    - name: Download Item Jar
+      uses: actions/download-artifact@v4
+      with:
+        name: app2-jar
+        path: /tmp/actions-runner/_work/gitHubActions-shopping-project/gitHubActions-shopping-project/ShopItemH2/target/
         
      
       
